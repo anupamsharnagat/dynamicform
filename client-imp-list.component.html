@@ -1,0 +1,81 @@
+<p>client-imp-list works!</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel panel-yellow">
+        <div class="panel-heading">Panel Green</div>
+        <div class="panel-body">
+          <form [formGroup]="cilForm">
+            <div class="row">
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <label>Impact List</label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6">
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <label>Incident Number</label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <mat-form-field appearance="fill">
+                  <input matInput placeholder="Incident No" formControlName="incNo">
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <label>Incident Start time</label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <mat-form-field>
+                  <input matInput type="datetime-local" placeholder="Incident start date" formControlName="iStartTime">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <label>Incident End time</label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <mat-form-field>
+                  <input matInput type="datetime-local" placeholder="Incident end date" formControlName="iEndtime">
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                  <mat-checkbox class="example-margin" labelPosition="before" formControlName="ntlData">Need transaction level data</mat-checkbox>
+              </div>
+            </div>
+            <div formArrayName="params">
+            <div *ngFor="let params of paramForm.controls; let i=index" [formGroupName]="i">
+              <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                  <mat-form-field>
+                    <input matInput placeholder="Parameter" formControlName="param">
+                  </mat-form-field>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                  <mat-form-field>
+                    <input matInput placeholder="value" formControlName="value">
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+              <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+              <button mat-raised-button color="primary" (click)="addParams()">Submit</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
